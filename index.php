@@ -5,15 +5,10 @@
         // // each client should remember their session id for EXACTLY 1 hour
         // session_set_cookie_params(3600);
 
-        // echo $_SESSION['CanAccess'];
-
         $CanAccess = false;
-        if(isset($_POST['Password']))
+        if($_POST['password'] == "tubbies")
         {
-            if($_POST['Password'] == "tubbies")
-            {
-                $CanAccess = true;
-            }
+            $CanAccess = true;
         }
 
         // Header
@@ -34,7 +29,7 @@
                 }
                 else
                 {
-                    include(dirname(__FILE__).'/Shared/nopassword.html');
+                    include(dirname(__FILE__).'/Shared/nopassword.php');
                 }
             ?>
         </div>
@@ -42,6 +37,6 @@
 
     <?php
     // Footer
-    include(dirname(__FILE__).'/Shared/footer.html');
+    include(dirname(__FILE__).'/Shared/footer.php');
     ?>
 </html>
