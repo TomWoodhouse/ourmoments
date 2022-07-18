@@ -1,0 +1,13 @@
+body{
+    background-color: #292929;
+    color: white;
+}
+
+footer{
+    border-top: 1px solid grey;
+}
+
+.btn-authentication{
+    background-color: white;
+    color: black;
+}
