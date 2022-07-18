@@ -14,6 +14,6 @@ else
     $_SESSION['CanAccess'] = "No";
 }
 
-header('Location: /' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 die();
 ?>
