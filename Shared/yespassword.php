@@ -18,7 +18,9 @@ $Moments = '';
 if ($hasData)
 {
     $AllImages = array();
-    $Moments .= '<div class="row justify-content-center" style="margin-top:3rem;">';
+    $Moments .= '
+            <div class="container-fluid">   
+                <div class="row justify-content-center" style="margin-top:3rem;">';
     while($row = $result->fetch_assoc())
     {
         $Moments .= '<div class="col-10 col-md-6 col-lg-4 pt-1 pb-1">
@@ -53,7 +55,8 @@ if ($hasData)
                         </div>
                     </div>';
     }
-    $Moments .= '</div>';
+    $Moments .= '</div>
+            </div>';
 
 
     $AllImagesCount = count($AllImages);
