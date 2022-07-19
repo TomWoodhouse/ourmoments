@@ -54,31 +54,32 @@ if ($hasData)
                     </div>';
     }
     $Moments .= '</div>';
-}
 
-$AllImagesCount = count($AllImages);
-$Images .= '<div class="row banner">
-                <div class="col-12">';
-if($AllImagesCount > 0)
-{
-    $Images .= '    <div class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">';
-    for ($i = 0; $i < $AllImagesCount; $i++)
+
+    $AllImagesCount = count($AllImages);
+    $Images .= '<div class="row banner">
+                    <div class="col-12">';
+    if($AllImagesCount > 0)
     {
-        $active="";
-        if($i == 0)
+        $Images .= '    <div class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">';
+        for ($i = 0; $i < $AllImagesCount; $i++)
         {
-            $active = "active";
+            $active="";
+            if($i == 0)
+            {
+                $active = "active";
+            }
+            $Images .= '        <div class="carousel-item '.$active.'">
+                                    <img src="'.$AllImages[$i].'" class="mx-auto d-block rounded" height="350">
+                                </div>';
         }
-        $Images .= '        <div class="carousel-item '.$active.'">
-                                <img src="'.$AllImages[$i].'" class="mx-auto d-block rounded" height="350">
-                            </div>';
+        $Images .= '       </div>
+                        </div>';
     }
-    $Images .= '       </div>
-                    </div>';
+    $Images .= '    </div>
+                </div>';    
 }
-$Images .= '    </div>
-            </div>';
 
 CloseCon($conn);
 
