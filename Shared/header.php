@@ -2,6 +2,7 @@
 <link href="Content/CSS/site.css" rel="stylesheet" type="text/css">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
+
 <header>
     <!-- <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">

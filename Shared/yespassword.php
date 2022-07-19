@@ -21,6 +21,7 @@ if ($hasData)
     $Moments .= '
             <div class="container-fluid">   
                 <div class="row justify-content-center" style="margin-top:3rem;">';
+
     while($row = $result->fetch_assoc())
     {
         $Moments .= '<div class="col-10 col-md-6 col-lg-4 pt-1 pb-1">
@@ -28,7 +29,7 @@ if ($hasData)
  
         if($row['Photos'] > 0)
         {
-            $Moments .= '    <div class="carousel slide" data-bs-ride="carousel">
+            $Moments .= '    <div id="photo-gallery-'.$row['ID'].'" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">';
 
             $files = glob("Images/".$row['ID']."/*.*");
@@ -45,8 +46,20 @@ if ($hasData)
                                     </div>';
                 array_push($AllImages,$file);
             }          
-            $Moments .= '        </div>
-                            </div>';
+            $Moments .= '       </div>';
+            
+            if($row['Photos'] > 1)
+            {
+                $Moments .= '   <button class="carousel-control-prev" type="button" data-bs-target="#photo-gallery-'.$row['ID'].'" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#photo-gallery-'.$row['ID'].'" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>';
+            }
+            $Moments .= '   </div>';
         }
         $Moments .= '        <div class="card-body">
                                 <h5 class="card-title">'.$row["Title"].'<text style="font-size:.6em;"> ('.$row["Dates"].')</text></h5>
