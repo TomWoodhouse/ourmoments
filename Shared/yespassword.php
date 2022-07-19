@@ -10,24 +10,85 @@ $result = $conn->query($sql);
 
 $hasData = false;
 if ($result->num_rows > 0) {
-    // output data of each row
-//     while($row = $result->fetch_assoc()) {
-//       echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-//     }
-//   } else {
-//     echo "0 results";
     $hasData = true;
 }
 
+$Images = '';
+$Moments = '';
+if ($hasData)
+{
+    $AllImages = array();
+    $Moments .= '<div class="row justify-content-center" style="margin-top:3rem;">';
+    while($row = $result->fetch_assoc())
+    {
+        $Moments .= '<div class="col-10 col-md-6 col-lg-4 pt-1 pb-1">
+                        <div class="card">';
+ 
+        if($row['Photos'] > 0)
+        {
+            $Moments .= '    <div class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">';
+
+            $files = glob("Images/".$row['ID']."/*.*");
+            for ($i = 0; $i < count($files); $i++)
+            {
+                $file = $files[$i];
+                $active="";
+                if($i == 0)
+                {
+                    $active = "active";
+                }
+                $Moments .= '        <div class="carousel-item card-carousel-item '.$active.'">
+                                        <img src="'.$file.'" class="mx-auto d-block rounded" height="250">
+                                    </div>';
+                array_push($AllImages,$file);
+            }          
+            $Moments .= '        </div>
+                            </div>';
+        }
+        $Moments .= '        <div class="card-body">
+                                <h5 class="card-title">'.$row["Title"].'<text style="font-size:.6em;"> ('.$row["Dates"].')</text></h5>
+                                <p class="card-text">'.$row["Description"].'</p>
+                            </div>
+                        </div>
+                    </div>';
+    }
+    $Moments .= '</div>';
+}
+
+$AllImagesCount = count($AllImages);
+$Images .= '<div class="row banner">
+                <div class="col-12">';
+if($AllImagesCount > 0)
+{
+    $Images .= '    <div class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">';
+    for ($i = 0; $i < $AllImagesCount; $i++)
+    {
+        $active="";
+        if($i == 0)
+        {
+            $active = "active";
+        }
+        $Images .= '        <div class="carousel-item '.$active.'">
+                                <img src="'.$AllImages[$i].'" class="mx-auto d-block rounded" height="350">
+                            </div>';
+    }
+    $Images .= '       </div>
+                    </div>';
+}
+$Images .= '    </div>
+            </div>';
+
 CloseCon($conn);
+
+echo $Images;
+echo $Moments;
 
 ?>
 
-<div class="row">
-    <?php if($hasData) { ?>
-    <?php } ?>
+<div class="row" style="margin-top:3rem; margin-bottom:3rem;">
     <div class="col-12 text-center">
-        <hr/>
         <h2>Want to add another moment?</h2>
         <a class="btn btn-success" href="addmoment.php">Then click here to add one</a>
     </div>

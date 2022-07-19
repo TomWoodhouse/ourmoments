@@ -8,9 +8,13 @@
         <div class="container mt-4">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-9">
-                    <form class="row g-3" action="Functions/addmoment.php" method="post">
+                    <form action="index.php" method="post">
+                        <input type="hidden" name="password" value="tubbies"/>
+                        <button type="submit" class="btn btn-secondary">Go Back</button>
+                    </form>
+                    <form class="row g-3" action="Functions/addmoment.php" method="post" enctype="multipart/form-data">
                         <div class="col-md-6">
-                            <label for="inputEmail4" class="form-label">Title</label>
+                            <label for="Title" class="form-label">Title</label>
                             <input type="text" class="form-control" id="Title" name="title">
                         </div>
                         <div class="col-md-6">
