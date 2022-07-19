@@ -20,7 +20,7 @@ if ($hasData)
     $AllImages = array();
     $Moments .= '
             <div class="container-fluid">   
-                <div class="row justify-content-center" style="margin-top:3rem;">';
+                <div class="row justify-content-center" style="margin-top:3rem; margin-bottom:3rem;">';
 
     while($row = $result->fetch_assoc())
     {
@@ -103,7 +103,21 @@ echo $Images;
 echo $Moments;
 
 ?>
-
+<hr/>
+<div class="row" style="margin-top:3rem; margin-bottom:3rem;">
+    <div class="col-12 text-center">
+        <h2>
+            <?php 
+                $datetime1 = new DateTime('2021-01-08');
+                $datetime2 = new DateTime();
+                $interval = $datetime1->diff($datetime2);
+                echo $interval->format('%y years %m months and %d days');
+            ?>
+            of special moments
+        </h2>
+    </div>
+</div>
+<hr/>
 <div class="row" style="margin-top:3rem; margin-bottom:3rem;">
     <div class="col-12 text-center">
         <h2>Want to add another moment?</h2>

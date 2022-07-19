@@ -17,7 +17,7 @@
 
     <body>
         <div class="mt-4">
-            <div class="row mb-3">
+            <div class="row" style="margin-top:3rem; margin-bottom:3rem;">
                 <div class="col-12 text-center">
                     <h1> Welcome to Our Moments! </h1>
                 </div>
