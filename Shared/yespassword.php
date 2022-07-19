@@ -100,10 +100,14 @@ if ($hasData)
 CloseCon($conn);
 
 echo $Images;
-echo $Moments;
+
+if(!$hasData)
+{
+    echo '<hr/>';
+}
 
 ?>
-<hr/>
+
 <div class="row" style="margin-top:3rem; margin-bottom:3rem;">
     <div class="col-12 text-center">
         <h2>
@@ -117,6 +121,13 @@ echo $Moments;
         </h2>
     </div>
 </div>
+
+<?php
+
+echo $Moments;
+
+?>
+
 <hr/>
 <div class="row" style="margin-top:3rem; margin-bottom:3rem;">
     <div class="col-12 text-center">
