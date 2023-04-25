@@ -65,6 +65,11 @@ if ($hasData)
                                 <h5 class="card-title">'.$row["Title"].'<text style="font-size:.6em;"> ('.$row["Dates"].')</text></h5>
                                 <p class="card-text">'.$row["Description"].'</p>
                             </div>
+                            <div class="card-footer">
+                                <div class="d-grid">
+                                    <button class="btn btn-warning">Edit Moment</button>
+                                </div>
+                            </div>
                         </div>
                     </div>';
     }
